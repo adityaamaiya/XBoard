@@ -12,3 +12,4 @@ nohup.out
 .idea/
 __pycache__/
 venv/
+.vercel
