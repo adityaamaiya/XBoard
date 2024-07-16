@@ -26,7 +26,7 @@ async function covid(){
 covid();
 let technology= document.getElementById("technology");
 async function tech(){
-    let url = `https://api.rss2json.com/v1/api.json?rss_url=${magazines[2]}`;
+    let url = `https://api.rss2json.com/v1/api.json?rss_url=${magazines[1]}`;
     let response= await fetch(url);
     let data= await response.json();
     console.log(data);
@@ -52,7 +52,7 @@ async function tech(){
 tech();
 let Entertainment= document.getElementById("ENTER");
 async function Enter(){
-    let url = `https://api.rss2json.com/v1/api.json?rss_url=${magazines[3]}`;
+    let url = `https://api.rss2json.com/v1/api.json?rss_url=${magazines[2]}`;
     let response= await fetch(url);
     let data= await response.json();
     console.log(data);
