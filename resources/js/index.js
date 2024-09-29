@@ -1,16 +1,16 @@
 const init = async () => {
   magazines = [
-    "https://flipboard.com/@thenewsdesk/the-latest-on-coronavirus-covid-19-t82no8kmz.rss",
+    "https://flipboard.com/@jonposey.rss",
     "https://flipboard.com/@dfletcher/india-tech-b2meqpd6z.rss",
     "https://flipboard.com/@thehindu/sportstarlive-rj3ttinvz.rss",
   ];
 
   let obj = [];
 
-  let cNews = await fetchNews(magazines[0]);
-  let cItems = cNews["items"];
-  console.log(cItems);
-  obj.push(cItems);
+  let eNews = await fetchNews(magazines[0]);
+  let eItems = eNews["items"];
+  console.log(eItems);
+  obj.push(eItems);
 
   let sNews = await fetchNews(magazines[1]);
   let sItems = sNews["items"];
@@ -42,17 +42,23 @@ const createAccordion = (idx) => {
   let categories = ["Coronavirus", "Technology", "Sports"];
   let accordion = document.createElement("div");
   accordion.className = "accordion";
-  accordion.setAttribute("id", "accordionExample");
+
   console.log(idx);
 
   accordion.innerHTML = `
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading${idx}">
-            <button class="accordion-btn ${idx !== 0 ? 'collapsed': ''}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${idx}" aria-expanded=${idx === 0 ? true : false} aria-controls="collapse${idx}">
+            <button class="accordion-btn ${
+              idx !== 0 ? "collapsed" : ""
+            }" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${idx}" aria-expanded=${
+    idx === 0 ? true : false
+  } aria-controls="collapse${idx}">
               <span class="category">${categories[idx]}</span>
             </button>
           </h2>
-          <div id="collapse${idx}" class="accordion-collapse collapse ${idx === 0 ? 'show' : ''}" aria-labelledby="heading${idx}" data-bs-parent="#accordionExample">
+          <div id="collapse${idx}" class="accordion-collapse collapse ${
+    idx === 0 ? "show" : ""
+  }" aria-labelledby="heading${idx}" data-bs-parent="#section-accordion">
             <div class="accordion-body">
               
             </div>
@@ -60,7 +66,7 @@ const createAccordion = (idx) => {
         </div>
       
       `;
-  
+
   return accordion;
 };
 
@@ -165,6 +171,5 @@ const addNewsToDOM = (items) => {
     accBody[idx].appendChild(carousal);
   });
 };
-
 
 init();
